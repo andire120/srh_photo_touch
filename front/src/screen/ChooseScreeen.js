@@ -65,7 +65,7 @@ const ChooseScreen = ({ selectFrame }) => {
       </div>
       
       <button className="next-button" onClick={handleNext}>
-        촬영하기
+          Filming
       </button>
     </div>
   );
