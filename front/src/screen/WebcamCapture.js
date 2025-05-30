@@ -151,8 +151,8 @@ const WebcamCapture = ({ addPhoto, photoCount, clearPhoto }) => {
         screenshotFormat="image/jpeg" // 스크린샷 포맷 지정
         videoConstraints={{           // 비디오 설정
           deviceId: deviceId,         // 사용할 카메라 장치 ID
-          width: 960,                 // 비디오 너비
-          height: 1280,               // 비디오 높이
+          width: 660,                 // 비디오 너비 960
+          height: 1280,               // 비디오 높이 1280
         }}
         className="webcam"            // CSS 클래스 적용
       />
