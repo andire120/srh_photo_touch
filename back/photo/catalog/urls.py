@@ -60,6 +60,8 @@ urlpatterns = [
     # React SPA 지원을 위한 catch-all 패턴
     # re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
     re_path(r'^', FrontendAppView.as_view(), name='frontend'),
+
+     path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
 ]
 
 # 정적 파일 설정
