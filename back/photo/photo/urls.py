@@ -28,6 +28,9 @@ from django.conf.urls.static import static
 
 from catalog.views import PhotoViewSet, some_endpoint
 
+from ..catalog.views import FrontendAppView
+
+
 def serve_manifest(request):
     # React 빌드 폴더 내 manifest.json 위치 지정
     file_path = os.path.join(settings.BASE_DIR, '/front/public/manifest.json')
@@ -105,6 +108,10 @@ urlpatterns = [
 
     path('api/photos/', PhotoViewSet.as_view({'get': 'list', 'post': 'create'}), name='photo-list'),
 
+]
+
+urlpatterns = [
+    re_path(r'^', FrontendAppView.as_view(), name='frontend'),
 ]
 
 # 개발 환경에서 미디어 파일 서빙 설정
