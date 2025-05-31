@@ -11,6 +11,9 @@ from datetime import datetime
 from rest_framework.parsers import MultiPartParser, FormParser
 import logging
 
+from django.views.generic import View
+from django.shortcuts import render
+
 logger = logging.getLogger(__name__)
 
 # 기존 뷰 유지
@@ -88,3 +91,8 @@ def get_current_date(request):
 def some_endpoint(request):
     data = {'message': 'Hello from Django!'}
     return JsonResponse(data)
+
+
+class FrontendAppView(View):
+    def get(self, request):
+        return render(request, 'index.html')
