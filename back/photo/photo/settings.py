@@ -159,10 +159,11 @@ STATICFILES_DIRS = [
     # os.path.join(BASE_DIR, 'public'),
     # os.path.join(BASE_DIR, 'build'),
     # os.path.join(BASE_DIR, "back/photo/staticfiles"),
-    # os.path.join(BASE_DIR, 'front/build/static'),  # React 빌드 결과물이 여기에 있으면
+    os.path.join(BASE_DIR, 'front/build/static'),  # React 빌드 결과물이 여기에 있으면
     
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 if not DEBUG:
     MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
