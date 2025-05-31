@@ -74,7 +74,7 @@
   align-items: center; /* 수직 중앙 정렬 */
   justify-content: center; /* 수평 중앙 정렬 */
   transition: background-color 0.3s, transform 0.3s;
-  width: auto; 
+  width: 70vw; 
   max-width: 100%; /* 버튼 크기가 화면을 넘지 않도록 설정 */
   margin-top: 130%;
   position: absolute;
