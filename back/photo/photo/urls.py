@@ -108,9 +108,6 @@ urlpatterns = [
 
     path('api/photos/', PhotoViewSet.as_view({'get': 'list', 'post': 'create'}), name='photo-list'),
 
-]
-
-urlpatterns = [
     re_path(r'^', FrontendAppView.as_view(), name='frontend'),
 ]
 
