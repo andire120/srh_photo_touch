@@ -96,6 +96,7 @@ DATABASES = {
 ALLOWED_HOSTS = [
     'srh-photo.onrender.com',
     'srh-photo-d86feda25493.herokuapp.com',
+    'srh-ea27220ba1ec.herokuapp.com',
     'spam4cut.com',
     'www.spam4cut.com',
     'localhost',
@@ -177,6 +178,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8000',
     'http://127.0.0.1:3000',
     'https://srh-photo.onrender.com',
+    'srh-ea27220ba1ec.herokuapp.com',
 ]
 # 신뢰할 수 있는 출처 설정 (CSRF 검증에 사용됨)
 CSRF_TRUSTED_ORIGINS = [
@@ -184,6 +186,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:8000',
     'https://srh-photo.onrender.com',
+    'srh-ea27220ba1ec.herokuapp.com',
 ]
 
 CORS_ALLOW_METHODS = [
