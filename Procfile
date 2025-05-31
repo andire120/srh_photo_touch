@@ -1,1 +1,1 @@
-gunicorn --chdir back/photo photo.wsgi
+web: gunicorn photo.wsgi --bind 0.0.0.0:$PORT --chdir photo
