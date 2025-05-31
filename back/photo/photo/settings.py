@@ -155,7 +155,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build/static'),
+    # os.path.join(REACT_APP_DIR, 'build/static'),
     # os.path.join(BASE_DIR, 'public'),
     # os.path.join(BASE_DIR, 'build'),
     # os.path.join(BASE_DIR, "back/photo/staticfiles"),
