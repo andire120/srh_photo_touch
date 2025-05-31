@@ -12,6 +12,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 import logging
 
 from django.views.generic import View
+from django.views import View
 from django.shortcuts import render
 
 logger = logging.getLogger(__name__)
@@ -95,4 +96,11 @@ def some_endpoint(request):
 
 class FrontendAppView(View):
     def get(self, request):
-        return render(request, 'index.html')
+        try:
+            with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'front', 'build', 'index.html')) as f:
+                return HttpResponse(f.read())
+        except FileNotFoundError:
+            return HttpResponse(
+                "index.html not found! Build your React app and try again.",
+                status=501,
+            )
