@@ -109,6 +109,8 @@ urlpatterns = [
     path('api/photos/', PhotoViewSet.as_view({'get': 'list', 'post': 'create'}), name='photo-list'),
 
     re_path(r'^', FrontendAppView.as_view(), name='frontend'),
+
+     path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
 ]
 
 # 개발 환경에서 미디어 파일 서빙 설정
