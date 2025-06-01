@@ -18,8 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # React 빌드 파일 경로
 # 주의: gunicorn이 back/photo에서 시작하므로 상대 경로가 중요합니다
-# REACT_APP_DIR = os.path.join(BASE_DIR, '../../front')  # 실제 경로에 맞게 조정
-REACT_APP_DIR = os.path.join(BASE_DIR, 'front')
+REACT_APP_DIR = os.path.join(BASE_DIR, '../../front')  # 실제 경로에 맞게 조정
+# REACT_APP_DIR = os.path.join(BASE_DIR, 'front')
 
 
 # Quick-start development settings - unsuitable for production
