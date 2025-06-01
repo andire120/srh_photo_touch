@@ -94,10 +94,12 @@ def some_endpoint(request):
     return JsonResponse(data)
 
 
+from django.conf import settings
+
 class FrontendAppView(View):
     def get(self, request):
         try:
-            with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'front', 'build', 'index.html')) as f:
+            with open(os.path.join(settings.BASE_DIR, 'front', 'build', 'index.html')) as f:
                 return HttpResponse(f.read())
         except FileNotFoundError:
             return HttpResponse(
