@@ -17,6 +17,8 @@ from django.shortcuts import render
 
 logger = logging.getLogger(__name__)
 
+BASE_DIR = settings.BASE_DIR
+
 # 기존 뷰 유지
 def photo_list(request):
     photos = Photo.objects.all().order_by('-created_at')
@@ -103,3 +105,7 @@ class FrontendAppView(View):
                 return HttpResponse(f.read(), content_type='text/html')
         except FileNotFoundError:
             return HttpResponse("index.html not found! Build your React app and try again.", status=501)
+
+
+def index(request):
+    return FileResponse(open(os.path.join(BASE_DIR, "frontend", "index.html"), 'rb'))
