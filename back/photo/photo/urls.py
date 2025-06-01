@@ -28,7 +28,7 @@ from django.conf.urls.static import static
 
 from catalog.views import PhotoViewSet, some_endpoint
 
-from ..catalog.views import FrontendAppView
+from catalog.views import FrontendAppView
 
 
 def serve_manifest(request):
