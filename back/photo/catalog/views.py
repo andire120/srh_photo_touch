@@ -100,10 +100,15 @@ def some_endpoint(request):
 
 from django.conf import settings
 
+import logging
+logger = logging.getLogger(__name__)
+
 class FrontendAppView(View):
     def get(self, request):
+        index_path = os.path.join(settings.BASE_DIR, 'front', 'build', 'index.html')
+        logger.info(f"Trying to serve: {index_path}")
         try:
-            with open(os.path.join(settings.BASE_DIR, 'front', 'build', 'index.html')) as f:
+            with open(index_path) as f:
                 return HttpResponse(f.read())
         except FileNotFoundError:
             return HttpResponse(
