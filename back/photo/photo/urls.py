@@ -30,6 +30,8 @@ from catalog.views import PhotoViewSet, some_endpoint
 
 from catalog.views import FrontendAppView
 
+from django.views.generic.base import RedirectView
+
 
 def serve_manifest(request):
     # React 빌드 폴더 내 manifest.json 위치 지정
