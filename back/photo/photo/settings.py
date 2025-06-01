@@ -67,7 +67,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # React 빌드 폴더를 추가
         # 'DIRS': [os.path.join(BASE_DIR, '../../front/build')],
-        'DIRS': [os.path.join(BASE_DIR, 'front', 'build')],
+        # 'DIRS': [os.path.join(BASE_DIR, 'front', 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend_build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
