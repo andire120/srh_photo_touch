@@ -18,7 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # React 빌드 파일 경로
 # 주의: gunicorn이 back/photo에서 시작하므로 상대 경로가 중요합니다
-REACT_APP_DIR = os.path.join(BASE_DIR, '../../front')  # 실제 경로에 맞게 조정
+# REACT_APP_DIR = os.path.join(BASE_DIR, '../../front')  # 실제 경로에 맞게 조정
+REACT_APP_DIR = os.path.join(BASE_DIR, 'front')
 
 
 # Quick-start development settings - unsuitable for production
@@ -67,8 +68,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # React 빌드 폴더를 추가
         # 'DIRS': [os.path.join(BASE_DIR, '../../front/build')],
-        # 'DIRS': [os.path.join(BASE_DIR, 'front', 'build')],
-        'DIRS': [os.path.join(BASE_DIR, 'frontend_build')],
+        'DIRS': [os.path.join(BASE_DIR, 'front', 'build')],
+        # 'DIRS': [os.path.join(BASE_DIR, 'frontend_build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -157,7 +158,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build/static'),
+    # os.path.join(REACT_APP_DIR, 'build/static'),
+    os.path.join(REACT_APP_DIR, 'build', 'static'),
     os.path.join(BASE_DIR, 'public'),
     os.path.join(BASE_DIR, 'build'),
     # os.path.join(BASE_DIR, "back/photo/staticfiles"),
