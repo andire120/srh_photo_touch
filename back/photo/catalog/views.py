@@ -17,7 +17,9 @@ from django.shortcuts import render
 
 logger = logging.getLogger(__name__)
 
-BASE_DIR = settings.BASE_DIR
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # 기존 뷰 유지
 def photo_list(request):
