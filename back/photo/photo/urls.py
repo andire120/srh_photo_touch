@@ -113,6 +113,9 @@ urlpatterns = [
     re_path(r'^', FrontendAppView.as_view(), name='frontend'),
 
      path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
+
+    path('', FrontendAppView.as_view(), name='frontend'),
+
 ]
 
 # 개발 환경에서 미디어 파일 서빙 설정
