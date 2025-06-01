@@ -41,10 +41,10 @@ def serve_logo(request, filename):
     raise Http404(f"Image file {filename} not found.")
 
 urlpatterns = [
-    # API 엔드포인트 (api/ 아래로 통일)
-    # path('', include(router.urls)),  # 🚀 `api/` 아래로 `router` 포함
-    path('api/', include(router.urls)),  # 🔗 API용 라우터
-    path('', TemplateView.as_view(template_name='index.html')),  # 🎨 React 화면
+    # API 엔드포인트
+    path('api/', include(router.urls)),
+
+    # 백엔드 API 뷰
     path('upload/', views.upload_photo, name='upload_photo'),
     path('date/', views.get_current_date, name='get_current_date'),
     path('current-date/', views.get_current_date, name='current_date'),
@@ -54,21 +54,16 @@ urlpatterns = [
     path('manifest.json', serve_manifest),
     path('spamlogo.png', serve_logo, {'filename': 'spamlogo.png'}),
     path('spamlogo2.png', serve_logo, {'filename': 'spamlogo2.png'}),
+    path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
 
-    # 기본 뷰
+    # 일반 뷰 (필요시 유지)
     path('app/', views.photo_list, name='photo_list'),
     path('photo/<uuid:pk>/', views.photo_detail, name='photo_detail'),
     path('photo/<int:pk>/', views.photo_detail, name='photo_detail'),
     path('photo/create/', views.photo_create, name='photo_create'),
 
-    # React SPA 지원을 위한 catch-all 패턴
-    # re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
-    re_path(r'^', FrontendAppView.as_view(), name='frontend'),
-
-    path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
-
-    path('', FrontendAppView.as_view(), name='frontend'),
-
+    # 🎯 React SPA를 위한 Catch-All (항상 맨 마지막에 위치)
+    re_path(r'^.*$', FrontendAppView.as_view(), name='frontend'),
 ]
 
 # 정적 파일 설정
