@@ -64,6 +64,9 @@ urlpatterns = [
     re_path(r'^', FrontendAppView.as_view(), name='frontend'),
 
     path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
+
+    path('', FrontendAppView.as_view(), name='frontend'),
+
 ]
 
 # 정적 파일 설정
