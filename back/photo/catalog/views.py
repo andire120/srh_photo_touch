@@ -106,13 +106,12 @@ logger = logging.getLogger(__name__)
 class FrontendAppView(View):
     def get(self, request):
         index_path = os.path.join(settings.BASE_DIR, 'front', 'build', 'index.html')
-        logger.info(f"Trying to serve: {index_path}")
         try:
-            with open(index_path) as f:
+            with open(index_path, 'r') as f:
                 return HttpResponse(f.read())
         except FileNotFoundError:
             return HttpResponse(
-                "index.html not found! Build your React app and try again.",
+                f"index.html not found at {index_path}! Build your React app and try again.",
                 status=501,
             )
 
