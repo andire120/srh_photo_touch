@@ -99,8 +99,7 @@ from django.conf import settings
 class FrontendAppView(View):
     def get(self, request):
         try:
-            file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'front', 'build', 'index.html')
-            with open(file_path, encoding='utf-8') as f:
+            with open("/app/front/build/index.html", encoding='utf-8') as f:
                 return HttpResponse(f.read(), content_type='text/html')
         except FileNotFoundError:
             return HttpResponse("index.html not found! Build your React app and try again.", status=501)
