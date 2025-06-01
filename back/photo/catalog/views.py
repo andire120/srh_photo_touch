@@ -103,13 +103,14 @@ from django.conf import settings
 class FrontendAppView(View):
     def get(self, request):
         try:
-            with open(os.path.join(settings.BASE_DIR, 'frontend_build', 'index.html')) as f:
+            with open(os.path.join(settings.BASE_DIR, 'front', 'build', 'index.html')) as f:
                 return HttpResponse(f.read())
         except FileNotFoundError:
             return HttpResponse(
                 "index.html not found! Build your React app and try again.",
                 status=501,
             )
+
 
 
 def index(request):
