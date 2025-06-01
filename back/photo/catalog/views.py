@@ -103,9 +103,10 @@ from django.conf import settings
 import logging
 logger = logging.getLogger(__name__)
 
+
 class FrontendAppView(View):
     def get(self, request):
-        index_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'front', 'build', 'index.html')
+        index_path = os.path.join(settings.BASE_DIR, 'front', 'build', 'index.html')
         try:
             with open(index_path, 'r') as f:
                 return HttpResponse(f.read())
@@ -114,6 +115,7 @@ class FrontendAppView(View):
                 f"index.html not found at {index_path}! Build your React app and try again.",
                 status=501,
             )
+
 
 
 
