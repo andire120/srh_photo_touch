@@ -11,6 +11,8 @@ import logging
 
 from .views import FrontendAppView
 
+from django.views.generic.base import RedirectView
+
 logger = logging.getLogger(__name__)
 
 # DefaultRouter 설정
@@ -52,7 +54,7 @@ urlpatterns = [
     path('spamlogo2.png', serve_logo, {'filename': 'spamlogo2.png'}),
 
     # 기본 뷰
-    path('', views.photo_list, name='photo_list'),
+    path('app/', views.photo_list, name='photo_list'),
     path('photo/<uuid:pk>/', views.photo_detail, name='photo_detail'),
     path('photo/<int:pk>/', views.photo_detail, name='photo_detail'),
     path('photo/create/', views.photo_create, name='photo_create'),
