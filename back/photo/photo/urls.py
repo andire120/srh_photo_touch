@@ -17,7 +17,7 @@ Including another URLconf
 import os
 from django.contrib.staticfiles.views import serve
 from django.contrib import admin
-from django.http import FileResponse
+from django.http import FileResponse, Http404
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
@@ -34,9 +34,10 @@ from django.views.generic.base import RedirectView
 
 
 def serve_manifest(request):
-    # React 빌드 폴더 내 manifest.json 위치 지정
-    file_path = os.path.join(settings.BASE_DIR, '/front/public/manifest.json')
-    return FileResponse(open(file_path, 'rb'), content_type='application/json')
+    file_path = os.path.join(settings.REACT_APP_DIR, 'build', 'manifest.json')
+    if os.path.exists(file_path):
+        return FileResponse(open(file_path, 'rb'), content_type='application/json')
+    raise Http404("manifest.json not found")
 
 def serve_logo(request, filename=None):
     # If filename is not provided in the URL, use the default
